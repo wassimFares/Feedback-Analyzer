@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Feedback Analyzer</title>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Feedback Analyzer</a>
+        <nav class="navigation">
+            <a href="/">Home</a>
+            <a href="#services">Services</a>
+            <a href="/history">History</a>
+            <a href="/login">Logout</a>
+        </nav>
+    </header>
+
+
+    <section class="main">
+        <div>
+            <h2>Welcome to<br><span>Feedback Analyzer</span></h2>
+            <h3>Your Source for Comprehensive Feedback. Analyze YouTube videos for sentiment and summarize Amazon product reviews effortlessly.</h3>
+        </div>
+    </section>
+
+    <section class="cards" id="services">
+        <h2 class="title">Services</h2>
+        <div class="content">
+            <a href="#yt" class="card">
+                <div class="info">
+                    <h3>YouTube Analysis</h3>
+                    <p>Harness the power of sentiment analysis on YouTube. Simply provide us with the link to the video you're interested in, and we'll break down the comments to give you a clear understanding of the overall sentiment expressed. Whether it's positive, negative, or neutral, our analysis will help you gauge the community's response effectively. Make informed decisions based on real-time feedback.</p>
+                </div>
+              </a>
+            
+            <a href="#amz" class="card">
+                <div class="info">
+                    <h3>Amazon Review Summarization</h3>
+                    <p>Unlock the insights hidden within Amazon product reviews. Share the link to the product you're considering, and we'll compile a concise summary of the reviews, saving you time and effort scrolling through pages of feedback. Make confident purchase decisions backed by aggregated insights from the Amazon community. Plus, we'll recommend three YouTube video reviews to enrich your understanding of the product's real-world performance.</p>
+                </div>
+              </a>
+        </div>
+    </section>
+
+    <section class="yt" id="yt">
+        <h2 class="title">YouTube Analysis</h2>
+        <form action="/submit_form" method="post">
+            <input name="text" type="text">
+            <button type="submit" id="btn">Get Results!</button>
+        </form>
+        <p class="yt-error">Invalid YouTube URL</p>
+          <div class="loader-container">
+            <div class="pyramid-loader">
+                <div class="wrapper">
+                  <span class="side side1"></span>
+                  <span class="side side2"></span>
+                  <span class="side side3"></span>
+                  <span class="side side4"></span>
+                  <span class="shadow"></span>
+                </div>
+              <p class="pp">Collecting Data...</p>
+            </div>  
+            
+            <div class="results-container">
+              <div class="skill">
+                <div class="skill-name">Positive</div>
+                <div class="skill-bar">
+                  <div class="skill-per positive" per="90%" style="max-width: 40%;"></div>
+                </div>
+              </div>
+            
+              <div class="skill">
+                <div class="skill-name">Negative</div>
+                <div class="skill-bar">
+                  <div class="skill-per negative" per="70%" style="max-width:70%"></div>
+                </div>
+              </div>
+            
+              <div class="skill">
+                <div class="skill-name">Neutral</div>
+                <div class="skill-bar">
+                  <div class="skill-per neutral" per="60%" style="max-width:60%"></div>
+                </div>
+              </div>
+        
+              <div class="skill">
+                <div class="skill-name">Unknown</div>
+                <div class="skill-bar">
+                  <div class="skill-per unknown" per="60%" style="max-width:60%"></div>
+                </div>
+              </div>
+            
+            
+            </div>
+          </div>
+    </section>
+
+    <section class="amz" id="amz">
+        <h2 class="title">Amazon Review Summarization</h2>
+        <div class="amz-content">
+            <form action="/submit_amz_form" method="post" id="amz-form">
+                <input name="text" type="text">
+                <div class="radio-inputs">
+                  <label class="radio">
+                    <input type="radio" name="radio" checked="">
+                    <span class="name">English</span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="radio">
+                    <span class="name">French</span>
+                  </label>
+                      
+                  <label class="radio">
+                    <input type="radio" name="radio">
+                    <span class="name">Arabic</span>
+                  </label>
+                </div>
+                <button type="submit" id="btn">Get Results!</button>
+            </form>
+            <p class="amz-error">Invalid Amazon Product URL</p>
+            <div class="loader-container">
+            <div class="pyramid-loader" id="amz-loader">
+                <div class="wrapper">
+                  <span class="side side1"></span>
+                  <span class="side side2"></span>
+                  <span class="side side3"></span>
+                  <span class="side side4"></span>
+                  <span class="shadow"></span>
+                </div>
+                <p>Collecting Data...</p>  
+              </div>
+            </div>
+            <div class="amz-res">
+              <h3 class="res-h3">Positives</h3>
+              <p id="pos-res"></p>
+              <h3 class="res-h3">Negatives</h3>
+              <p id="neg-res"></p>
+              <h3 class="yt-h3">YouTube Video Reviews</h3>
+              <div class="videos-container">
+                <div class="card video-card">
+                  <img src="" alt="" class="video-img">
+                  <a href="" class="video-link"><p class="video-title"></p></a>
+                </div>
+                <div class="card video-card">
+                  <img src="" alt="" class="video-img">
+                  <a href="" class="video-link"><p class="video-title"></p></a>
+                </div>
+                <div class="card video-card">
+                  <img src="" alt="" class="video-img">
+                  <a href="" class="video-link"><p class="video-title"></p></a>
+                </div>  
+              </div>
+            </div>
+              
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p class="footer-title">Copyrights @ <span>Feedback Analyzer Productions</span></p>
+        <div class="social-icons">
+            
+        </div>
+    </footer>
+    <script src="/static/main.js"></script>
+</body>
+</html>
