@@ -34,3 +34,24 @@ def search_videos(query, max_results=3, lang='english'):
 
 
     return videos
+
+
+def get_data(video_id):
+    youtube = build('youtube', 'v3', developerKey=API_KEY)
+
+    video_response = youtube.videos().list(
+        part='snippet',
+        id=video_id
+    ).execute()
+
+    video_data = video_response.get('items', [])
+    if not video_data:
+        return None
+
+    video = video_data[0]
+    video_title = video['snippet']['title']
+    video_link = 'https://www.youtube.com/watch?v=' + video_id
+    thumbnail_url = video['snippet']['thumbnails']['high']['url']
+
+    return [video_title, video_link, thumbnail_url]
+    

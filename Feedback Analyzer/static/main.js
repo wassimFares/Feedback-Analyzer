@@ -19,7 +19,7 @@ const amzError = document.querySelector('.amz-error');
 const radios = document.querySelectorAll('.radio-inputs input[type="radio"]');
 
 
-
+console.log("test")
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();

@@ -19,6 +19,7 @@ def comment_analysis(url, ID):
     response = collect_data(ID)
     p = n = u = un = 0
     for item in response:
+        time.sleep(5)
         comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
         gmResponse = model.generate_content(f"\"{comment}\" this is a comment on a youtube video (link : '{url}') based on that is this a 'positive' or 'negative' or 'neutral' comment for the creator, just answer with one of the three options, no more information no more characters please and only lower case characters")
         
@@ -36,4 +37,4 @@ def comment_analysis(url, ID):
             print(e)
             un = un + 1
 
-    return jsonify([p, n, u, un])
+    return [p, n, u, un]

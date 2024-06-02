@@ -9,6 +9,10 @@
     scroll-behavior: smooth; 
 }
 
+.alert {
+    text-align: center;
+}
+
 
 
 header {

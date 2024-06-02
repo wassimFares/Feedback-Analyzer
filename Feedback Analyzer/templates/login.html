@@ -9,20 +9,23 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="/sign_up" id="sign-up-form">
+            <form action="/signup" method="post"  id="sign-up-form">
                 <h1>Create Account</h1>
                 <input type="name" name="name" placeholder="Name" />
                 <input type="email" name="email" placeholder="Email" />
                 <input type="password" name="password" placeholder="Password" />
-                <button type="submit" id="sign-up">Sign Up</button>
+                <button type="submit" id="signup">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="/sign_in" id="sign-in-form">
-                <h1>Sign in</h1>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button type="submit" id="sign-in">Sign In</button>
+            <form action="/login" method="post" id="login-in-form">
+                <h1>Log in</h1>
+                <input type="email" name="emaill"  placeholder="Email" />
+                <input type="password" name="passwordl" placeholder="Password" />
+                <button type="submit" id="login">Log In</button>
+                {% if error %}
+                <p class="error">{{ error }}</p>
+                 {% endif %}
             </form>
         </div>
         <div class="overlay-container">

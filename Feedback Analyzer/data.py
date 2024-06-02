@@ -8,7 +8,7 @@ load_dotenv()
 api_key = os.getenv("YT_API")
 
 
-max_pages=20
+max_pages=1
 
 def collect_data(video_id):
     api_service_name = "youtube"
@@ -25,7 +25,7 @@ def collect_data(video_id):
         request = youtube.commentThreads().list(
             part="snippet",
             videoId=video_id,
-            maxResults=100,
+            maxResults=10,
             pageToken=page_token
         )
         response = request.execute()
